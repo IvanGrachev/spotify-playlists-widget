@@ -2,9 +2,18 @@
   padding: 5px 0 10px
 
 .track
+  border-bottom: 1px solid #eeeeee
+  margin-bottom: 5px
   padding-bottom: 5px
 
-.tracks-header, .track
+.artist-details
+  background-color: #f3f3f3
+
+  .value
+    //font-weight: bold
+
+
+.tracks-header, .track, .artist-details
   width: 100%
 
   div
@@ -21,3 +30,11 @@
     flex-grow: 0
     flex-shrink: 0
     flex-basis: 100px
+
+  .artist
+    a
+      color: blue
+      cursor: pointer
+
+    .expanded-artist
+      color: #551A8B

@@ -2,6 +2,8 @@ import {createContext, ReactNode, useContext, useEffect, useState} from 'react';
 import Playlist from "./Playlists/Playlist";
 import AuthContext from "./AuthContext";
 
+const PLAYLISTS_BASE_URL = 'https://api.spotify.com/v1/playlists'
+
 export interface PlaylistsContextValue {
     playlists: Playlist[]
 }
@@ -14,14 +16,13 @@ const PLAYLIST_IDS = [
     '37i9dQZF1DWWGFQLoP9qlv',
     '37i9dQZEVXbKCF6dqVpDkS',
     '37i9dQZF1DZ06evO2x5mVQ',
-    '3y4vRqCFIbOZP1QzZglKxZ',
     '37i9dQZF1E4tkRISu6oGrx',
     '55ow5lAVQjqFuLLKE9tw33',
 ]
 
 async function getPlaylistById (id: string, authToken: string): Promise<Playlist | null> {
     try {
-        const response = await fetch(`https://api.spotify.com/v1/playlists/${id}`, {
+        const response = await fetch(`${PLAYLISTS_BASE_URL}/${id}`, {
             method: "get",
             headers: {
                 "Authorization": `Bearer ${authToken}`

@@ -7,13 +7,12 @@ import Track from "../Tracks/Track";
 
 interface Props {
     selectedPlaylist: Playlist,
-    goBack: () => void;
 }
 
-export function ExpandedPlaylist({selectedPlaylist, goBack}: Props){
-    return (<div className="expanded-playlist" onClick={() => goBack()}>
+export function ExpandedPlaylist({selectedPlaylist}: Props){
+    return (<div className="expanded-playlist">
         <ExpandedPlaylistHeader />
-        {selectedPlaylist.tracks.items.map((item, index) => <Track index={index} track={item} />)}
+        {selectedPlaylist.tracks.items.map((item, index) => <Track index={index} key={item.track.id} track={item} />)}
     </div>)
 }
 

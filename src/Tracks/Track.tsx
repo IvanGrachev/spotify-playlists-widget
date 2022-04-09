@@ -1,5 +1,9 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, MouseEvent} from 'react';
 import {Artist, WrappedTrack} from "../Playlists/Playlist";
+import AuthContext from "../AuthContext";
+import {ArtistDetails, ArtistFull} from "./ArtistsDetails";
+
+const ARTIST_BASE_URL = 'https://api.spotify.com/v1/artists'
 
 interface Props {
     track: WrappedTrack,
@@ -14,20 +18,52 @@ export function getHumanizedDuration(duration: number){
 }
 
 export function Track({track, index}: Props) {
+    const [selectedArtist, setSelectedArtist] = useState<ArtistFull | null>(null)
+    const {accessToken} = useContext(AuthContext)
 
-    return (<div className="track flex" >
-        <div className="number">{index}</div>
-        <div className="title">{track.track.name}</div>
-        <div className="album">{track.track.album.name}</div>
-        <div className="artist">
-            {track.track.artists.map((a: Artist) =>
-                <React.Fragment key={a.id}>
-                    <div>{a.name}</div><br/>
-                </React.Fragment>
-                )}
-        </div>
-        <div className="duration">{getHumanizedDuration(track.track.duration_ms)}</div>
-    </div>)
+    async function loadArtistDetails(artist: Artist) {
+        try {
+            const response = await fetch(`${ARTIST_BASE_URL}/${artist.id}`, {
+                method: "get",
+                headers: {
+                "Authorization": `Bearer ${accessToken}`
+                }
+            })
+            const artistFull = await response.json()
+            console.log(artistFull)
+            setSelectedArtist(artistFull)
+
+        } catch (ex){
+            console.log("An Error occured while loading artist's details")
+            console.log(ex)
+        }
+    }
+
+
+    function toggleArtistsDetails(event: MouseEvent<HTMLAnchorElement>, artist: Artist) {
+        event.stopPropagation()
+        if(selectedArtist !== null && selectedArtist.id === artist.id)
+            setSelectedArtist(null)
+        else loadArtistDetails(artist)
+    }
+
+    return (
+        <div className="track">
+            <div className=" flex" >
+                <div className="number">{index}</div>
+                <div className="title">{track.track.name}</div>
+                <div className="album">{track.track.album.name}</div>
+                <div className="artist">
+                    {track.track.artists.map((a: Artist) =>
+                        <React.Fragment key={a.id}>
+                            <a href={void(0)} className={`${a.id === (selectedArtist && selectedArtist.id)? 'expanded-artist' : ''}`}  onClick={(e) => {toggleArtistsDetails(e, a)}}>{a.name}</a><br/>
+                        </React.Fragment>
+                    )}
+                </div>
+                <div className="duration">{getHumanizedDuration(track.track.duration_ms)}</div>
+            </div>
+            {!!selectedArtist && <ArtistDetails artist={selectedArtist} /> }
+        </div>)
 }
 
 export default Track
