@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import Playlist from "./Playlist";
 import ExpandedPlaylist from "./ExpandedPlaylist";
+import ImageOverlay from "./ImageOverlay";
 
 interface Props  {
     playlist: Playlist
@@ -13,7 +14,10 @@ export function PlaylistComponent({playlist}: Props){
 
     return (<div className="playlist">
         <div className="album-info"  onClick={() => {setExpanded(!expanded)}}>
-            <img src={imageUrl}  alt="album image"/>
+            <div className="playlist-image">
+                <img src={imageUrl}  alt="playlist image"/>
+                <ImageOverlay totalTracks={playlist.tracks.total} />
+            </div>
             <div className="playlist-info">
                 <h2>{playlist.name}</h2>
                 <h2>{playlist.description}</h2>

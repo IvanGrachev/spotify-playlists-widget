@@ -29,6 +29,7 @@ export interface Tracks {
     items: WrappedTrack[];
     next: string | null;
     previous: string | null;
+    total: number;
 }
 
 export interface Playlist {
