@@ -1,5 +1,3 @@
-import './StringPolyfillForIE'
-
 import React from 'react';
 import './index.sass';
 import './Playlists/Playlist.sass';
