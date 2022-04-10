@@ -1,3 +1,5 @@
+@import "Colors"
+
 .flex
     display: flex
 
@@ -5,8 +7,18 @@ h1
     margin: 20px 10px
     height: 40px
 
-.right
-    float: right
+.playlist-container
+    padding: 20px 10px
+
+.dark-theme
+    color: #eeeeee
+    background-color: $background-dark
+
+    .toggle-theme-btn
+        background-color: $button-background-color-dark-theme
+        border-color: $button-border-color-dark-theme
+        color: $text-color-dark-theme
+
 
 .toggle-theme-btn
     position: absolute
@@ -14,6 +26,7 @@ h1
     right: 40px
     height: 36px
     font-size: 1.2em
-    background-color: white
+    background-color: $button-background-color-light-theme
     border-radius: 5px
     cursor: pointer
+

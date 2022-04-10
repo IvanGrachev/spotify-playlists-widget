@@ -30,7 +30,6 @@ export function Track({track, index}: Props) {
                 }
             })
             const artistFull = await response.json()
-            console.log(artistFull)
             setSelectedArtist(artistFull)
 
         } catch (ex){
@@ -49,14 +48,16 @@ export function Track({track, index}: Props) {
 
     return (
         <div className="track">
-            <div className=" flex" >
+            <div className="flex" >
                 <div className="number">{index}</div>
                 <div className="title">{track.track.name}</div>
                 <div className="album">{track.track.album.name}</div>
                 <div className="artist">
                     {track.track.artists.map((a: Artist) =>
                         <React.Fragment key={a.id}>
-                            <a href={void(0)} className={`${a.id === (selectedArtist && selectedArtist.id)? 'expanded-artist' : ''}`}  onClick={(e) => {toggleArtistsDetails(e, a)}}>{a.name}</a><br/>
+                            <a href={void(0)}
+                               className={`${a.id === (selectedArtist && selectedArtist.id)? 'expanded-artist' : ''}`}
+                               onClick={(e) => {toggleArtistsDetails(e, a)}}>{a.name}</a><br/>
                         </React.Fragment>
                     )}
                 </div>

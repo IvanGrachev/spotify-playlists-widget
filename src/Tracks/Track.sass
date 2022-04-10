@@ -1,16 +1,18 @@
+@import "../Colors"
+
 .tracks-header
   padding: 5px 0 10px
 
 .track
   border-bottom: 1px solid #eeeeee
   margin-bottom: 5px
-  padding-bottom: 5px
+
+  .flex
+    padding: 5px 0
+
 
 .artist-details
-  background-color: #f3f3f3
-
-  .value
-    //font-weight: bold
+  background-color: $artist-details-background-color-light-theme
 
 
 .tracks-header, .track, .artist-details
@@ -33,8 +35,19 @@
 
   .artist
     a
-      color: blue
+      color: $artist-color-light-theme
       cursor: pointer
 
     .expanded-artist
-      color: #551A8B
+      color: $artist-color-selected-light-theme
+
+.dark-theme
+  .track
+    border-bottom: 1px solid $border-color-table-dark-theme
+    a
+      color: $artist-color-dark-theme
+
+    .expanded-artist
+      color: $artist-color-selected-dark-theme
+  .artist-details
+    background-color: $artist-details-background-color-dark-theme

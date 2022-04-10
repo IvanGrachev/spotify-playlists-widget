@@ -1,6 +1,5 @@
-import React, {useContext, useState} from 'react';
-import PlaylistComponent from './PlaylistComponent';
-import PlaylistsContext from "../PlaylistsContext";
+import React from 'react';
+
 import Playlist from "./Playlist";
 import ExpandedPlaylistHeader from "../Tracks/TracksHeader";
 import Track from "../Tracks/Track";
