@@ -1,6 +1,6 @@
-#My Playlists app (front-end developer assessment)
+# My Playlists app (front-end developer assessment)
 
-###This project utilises Spotify API to present playlists and their tracks in an expandable way.
+### This project utilises Spotify API to present playlists and their tracks in an expandable way.
 
 ## Features:
 * You can see playlist titles, covers and descriptions
