@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-import Playlist from "./Playlist";
+
+import Playlist from "../TransferObjects";
 import ExpandedPlaylist from "./ExpandedPlaylist";
 import ImageOverlay from "./ImageOverlay";
 

@@ -1,6 +1,5 @@
-import {Image} from "../Playlists/Playlist";
+import {Image} from "../TransferObjects";
 import React from "react";
-
 
 export interface ArtistFull {
     name: string;

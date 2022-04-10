@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Playlist from "./Playlist";
+import Playlist from "../TransferObjects";
 import ExpandedPlaylistHeader from "../Tracks/TracksHeader";
 import Track from "../Tracks/Track";
 

@@ -32,7 +32,7 @@ export interface Tracks {
     total: number;
 }
 
-export interface Playlist {
+export interface TransferObjects {
     name: string;
     images: Image[];
     followers: number;
@@ -41,4 +41,4 @@ export interface Playlist {
     id: string;
 }
 
-export default Playlist
+export default TransferObjects

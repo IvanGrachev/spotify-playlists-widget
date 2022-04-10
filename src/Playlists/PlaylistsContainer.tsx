@@ -1,7 +1,8 @@
 import React, {useContext, useState} from 'react';
+
 import PlaylistComponent from './PlaylistComponent';
 import PlaylistsContext from "../PlaylistsContext";
-import Playlist from "./Playlist";
+import Playlist from "../TransferObjects";
 
 const LIGHT_THEME = 'light-theme'
 const DARK_THEME = 'dark-theme'

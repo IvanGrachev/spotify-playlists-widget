@@ -1,5 +1,6 @@
 import React, {useContext, useState, MouseEvent} from 'react';
-import {Artist, WrappedTrack} from "../Playlists/Playlist";
+
+import {Artist, WrappedTrack} from "../TransferObjects";
 import AuthContext from "../AuthContext";
 import {ArtistDetails, ArtistFull} from "./ArtistsDetails";
 
@@ -49,7 +50,7 @@ export function Track({track, index}: Props) {
     return (
         <div className="track">
             <div className="flex" >
-                <div className="number">{index}</div>
+                <div className="number">{index + 1}</div>
                 <div className="title">{track.track.name}</div>
                 <div className="album">{track.track.album.name}</div>
                 <div className="artist">
