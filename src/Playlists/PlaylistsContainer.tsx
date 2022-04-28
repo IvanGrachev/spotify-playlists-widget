@@ -17,12 +17,14 @@ export function PlaylistsContainer() {
         } else setTheme(LIGHT_THEME)
     }
 
-    return (<div className={`playlist-container ${theme}`}>
+    return (<div data-testid="playlist-container" className={`playlist-container ${theme}`}>
         <h1>My Playlists</h1>
-        <button className="toggle-theme-btn" onClick={toggleTheme}>ToggleTheme</button>
+        <button data-testid="toggle-theme-btn" className="toggle-theme-btn" onClick={toggleTheme}>ToggleTheme</button>
         <div>
             {playlists.map((p: Playlist) => <PlaylistComponent key={p.id} playlist={p}/>)}
         </div>
 
     </div>)
 }
+
+export default PlaylistsContainer

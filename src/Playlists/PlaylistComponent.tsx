@@ -14,7 +14,7 @@ export function PlaylistComponent({playlist}: Props){
     const [expanded, setExpanded] = useState<boolean>(false)
 
     return (<div className="playlist">
-        <div className="album-info"  onClick={() => {setExpanded(!expanded)}}>
+        <div className="playlist-description" data-testid="playlist-description" onClick={() => {setExpanded(!expanded)}}>
             <div className="playlist-image">
                 <img src={imageUrl}  alt="playlist image"/>
                 <SongsCount totalTracks={playlist.tracks.total} />
@@ -24,9 +24,9 @@ export function PlaylistComponent({playlist}: Props){
                 <h2>{playlist.description}</h2>
             </div>
         </div>
-        <div className="expanded-container">
-            {expanded && <ExpandedPlaylist selectedPlaylist={playlist} />}
-        </div>
+        {expanded && <div data-testid="expanded-playlist" className="expanded-container">
+            <ExpandedPlaylist selectedPlaylist={playlist} />
+        </div> }
     </div>)
 }
 
