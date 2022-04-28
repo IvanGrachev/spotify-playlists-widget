@@ -1,13 +1,5 @@
-export interface Image {
-    height: number | null;
-    width: number | null;
-    url: string;
-}
+import Artist from "./Artist";
 
-export interface Artist {
-    name: string;
-    id: string;
-}
 
 export interface Track {
     artists: Artist[];
@@ -24,6 +16,7 @@ export interface WrappedTrack {
     track: Track
 }
 
+
 export interface Tracks {
     href: string;
     items: WrappedTrack[];
@@ -32,13 +25,4 @@ export interface Tracks {
     total: number;
 }
 
-export interface TransferObjects {
-    name: string;
-    images: Image[];
-    followers: number;
-    description: string;
-    tracks: Tracks;
-    id: string;
-}
-
-export default TransferObjects
+export default Track

@@ -1,4 +1,4 @@
-import {Image} from "../TransferObjects";
+import {Image} from "../DTOs/Image";
 import React from "react";
 
 export interface ArtistFull {

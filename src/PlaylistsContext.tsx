@@ -1,6 +1,6 @@
 import {createContext, ReactNode, useContext, useEffect, useState} from 'react';
 
-import Playlist from "./TransferObjects";
+import Playlist from "./DTOs/Playlist";
 import AuthContext from "./AuthContext";
 
 const PLAYLISTS_BASE_URL = 'https://api.spotify.com/v1/playlists'

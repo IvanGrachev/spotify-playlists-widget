@@ -1,6 +1,7 @@
 import React, {useContext, useState, MouseEvent} from 'react';
 
-import {Artist, WrappedTrack} from "../TransferObjects";
+import Artist from "../DTOs/Artist";
+import {WrappedTrack} from "../DTOs/Track";
 import AuthContext from "../AuthContext";
 import {ArtistDetails, ArtistFull} from "./ArtistsDetails";
 

@@ -1,14 +1,14 @@
 import React, {useContext, useState} from 'react';
 
 import PlaylistComponent from './PlaylistComponent';
-import PlaylistsContext from "../PlaylistsContext";
-import Playlist from "../TransferObjects";
+import PlaylistsContext, {PlaylistsContextValue} from "../PlaylistsContext";
+import Playlist from "../DTOs/Playlist";
 
 const LIGHT_THEME = 'light-theme'
 const DARK_THEME = 'dark-theme'
 
 export function PlaylistsContainer() {
-    const {playlists} = useContext(PlaylistsContext);
+    const {playlists} = useContext<PlaylistsContextValue>(PlaylistsContext);
     const [theme, setTheme] = useState<string>(LIGHT_THEME)
 
     function toggleTheme(){
